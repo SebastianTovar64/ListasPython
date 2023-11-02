@@ -20,8 +20,10 @@ indiceMaxEdad = edades.index(maxEdad)
 print(f"El aprendiz con la mayor edad es {aprendices[indiceMaxEdad]} con {maxEdad} años.")
 
 # Insertar el nombre de la instructora en la posición 1.
-instructora = "Adriana"
-aprendices.insert(1, instructora)
+instructora = input("Ingrese el nombre de la instructora de primero: ")
+aprendices.insert(0, instructora)
+print(aprendices)
+
 
 # Contar cuántos aprendices tienen 18 años.
 conteoEdad = edades.count(18)
@@ -33,6 +35,10 @@ aprendices.append("Dahiana")
 # Borrar el nombre de la instructora de la lista si existe.
 if instructora in aprendices:
     aprendices.remove(instructora)
+    print(f"Se eliminó a {instructora} de la lista de aprendices.")
+else:
+    print(f"{instructora} no se encontró en la lista de aprendices.")
+    print(aprendices)
 
 # Indicar un dato a buscar en la lista de aprendices.
 datobuscar = input("Ingrese un nombre para buscar en la lista de aprendices: ")
