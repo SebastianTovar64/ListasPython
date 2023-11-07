@@ -42,7 +42,7 @@ def buscarEquipo():
 
 # La funcion "mostrarEquiposConNovedades" muestra una lista de equipos que tienen novedades registradas.
 def mostrarEquiposConNovedades():
-    equiposNovedades = [equipo for equipo in equipos.values() if equipo['novedades']]
+    equiposNovedades = [equipoId for equipoId, equipo in equipos.items() if equipo['novedades']]
     if equiposNovedades:
         print("Equipos con novedades:")
         for equipoId in equiposNovedades:
@@ -52,7 +52,7 @@ def mostrarEquiposConNovedades():
             print(f"Mouse: {equipo['mouse']}")
             print("Novedades:")
             for novedad in equipo['novedades']:
-                print(f"Fecha: {novedad['fecha']}, Descripcion: {novedad['descripcion']}")
+                print(f"Fecha: {novedad['fecha']}, Descripción: {novedad['descripcion']}")
             print()
     else:
         print("No hay equipos con novedades.")
