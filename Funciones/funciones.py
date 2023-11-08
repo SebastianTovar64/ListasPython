@@ -3,17 +3,17 @@ def saludar():
     print("saludo")
 
 # Definición de la función retornarnumero
-def retornarnumero():
+def retornarNumero():
     return 1
 
 # Llamada a la función saludar, imprime "saludo" pero no devuelve ningún valor
 saludar()
 
 # Llamada a la función retornarnumero, devuelve 1, pero este valor no se imprime
-retornarnumero()
+retornarNumero()
 
 # Comprobación de si la función retornarnumero devuelve 1 e imprime un mensaje en consecuencia
-if retornarnumero() == 1:
+if retornarNumero() == 1:
     print("devolvió un uno")
 else:
     print("No devolvió un uno")
@@ -26,14 +26,14 @@ def raiz(value):
 print(f'La raíz cuadrada es: {raiz(4)}')
 
 # Definición de la función validarsiexiste que verifica si un objeto es verdadero o falso y muestra un mensaje
-def validarsiexiste(obj):
+def validarSiExiste(obj):
     if obj:
         print(f"{obj} is True")
     else:
         print(f"{obj} is False")
 
 # Llamada a la función validarsiexiste con el argumento 1
-validarsiexiste(1)
+validarSiExiste(1)
 
 # Definición de la función f que suma los cuadrados de dos números
 def f(x, y):
@@ -85,21 +85,21 @@ def lista(arg, result=[]):
 lista('domingo', [])
 
 # Definición de la función lista_dias_semana que extiende una lista de días de la semana
-def lista_dias_semana(result=None):
+def listaDiasSemana(result=None):
     if result is None:
         result = []
     result.extend(["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"])
     return result
 
 # Llamada a la función lista_dias_semana para obtener una lista extendida con los días de la semana
-result = lista_dias_semana()
+result = listaDiasSemana()
 print(result)
 
 # Definición de una función lambda (anónima) que cuenta el número de palabras en una cadena
-numero_palabras = lambda t: len(t.strip().split())
+numeroPalabras = lambda t: len(t.strip().split())
 
 # Llamada a la función lambda con una cadena y se imprime el número de palabras
-print(numero_palabras("hola, esto es una prueba con lambda"))
+print(numeroPalabras("hola, esto es una prueba con lambda"))
 
 # Definición de una función lambda (anónima) que realiza la operación AND en dos valores
 operadorand = lambda x, y: x & y
