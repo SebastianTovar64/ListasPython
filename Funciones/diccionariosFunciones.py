@@ -9,7 +9,7 @@ def agregarEquipo():
         return
     cargador = input("Ingresa el numero del cargador: ")
     mouse = input("Ingresa el numero del mouse: ")
-    equipos[equipoId] = {"cargador": cargador, "mouse": mouse, "novedades": []}
+    equipos[equipoId] = {"cargador": cargador, "mouse": mouse, "novedades": [], "ambientes": []}
     print("Equipo agregado con exito.")
 
 # La funcion "agregarNovedad" permite agregar una novedad a un equipo existente, especificando fecha y descripcion.
@@ -37,6 +37,12 @@ def buscarEquipo():
                 print(f"Fecha: {novedad['fecha']}, Descripcion: {novedad['descripcion']}")
         else:
             print("No hay novedades para este equipo.")
+        if equipo['ambientes']:
+            print("Ambientes:")
+            for ambiente in equipo['ambientes']:
+                print(ambiente)
+        else:
+            print("No hay ambientes asignados para este equipo.")
     else:
         print("Equipo no encontrado.")
 
@@ -57,6 +63,35 @@ def mostrarEquiposConNovedades():
     else:
         print("No hay equipos con novedades.")
 
+def eliminarEquipo():
+    equipoId = input("Ingresa el ID del equipo que deseas eliminar: ")
+    if equipoId in equipos:
+        del equipos[equipoId]
+        print("Equipo eliminado con exito.")
+    else:
+        print("Equipo no encontrado.")
+
+def modificarEquipo():
+    equipoId = input("Ingresa el ID del equipo que deseas modificar: ")
+    if equipoId in equipos:
+        equipo = equipos[equipoId]
+        campo = input("Ingresa el campo que deseas modificar (cargador, mouse): ")
+        nuevoValor = input("Ingresa el nuevo valor del campo: ")
+        equipo[campo] = nuevoValor
+        print("Equipo modificado con exito.")
+    else:
+        print("Equipo no encontrado.")
+
+def agregarAmbiente():
+    equipoId = input("Ingresa el ID del equipo al que deseas agregar un ambiente: ")
+    if equipoId in equipos:
+        equipo = equipos[equipoId]
+        ambiente = input("Ingresa el ambiente que deseas agregar: ")
+        equipo["ambientes"].append(ambiente)
+        print("Ambiente agregado con exito.")
+    else:
+        print("Equipo no encontrado.")
+
 # Este bucle permite al usuario seleccionar acciones como agregar equipo, agregar novedad, buscar equipo, mostrar equipos con novedades y salir.
 while True:
     print("\nOpciones:")
@@ -64,7 +99,10 @@ while True:
     print("2. Agregar novedad")
     print("3. Buscar equipo por ID")
     print("4. Mostrar equipos con novedades")
-    print("5. Salir")
+    print("5. Eliminar Equipo")
+    print("6. Modificar equipo")
+    print("7. Agregar a que ambiente pertenece")
+    print("8. Salir")
     opcion = input("Selecciona una opcion: ")
 
     if opcion == "1":
@@ -76,6 +114,12 @@ while True:
     elif opcion == "4":
         mostrarEquiposConNovedades()
     elif opcion == "5":
+        eliminarEquipo()
+    elif opcion == "6":
+        modificarEquipo()
+    elif opcion == "7":
+        agregarAmbiente()
+    elif opcion == "8":
         break
     else:
         print("Opcion no valida. Por favor, selecciona una opcion valida.")
